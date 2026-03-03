@@ -1,0 +1,64 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ---------------------------< org.agora:occ >----------------------------
+[INFO] Building occ 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] ------------------------------[ quarkus ]-------------------------------
+[WARNING] The artifact io.quarkus:quarkus-junit5:jar:3.31.4 has been relocated to io.quarkus:quarkus-junit:jar:3.31.4: Update the artifactId in your project build file. Refer to https://github.com/quarkusio/quarkus/wiki/Migration-Guide-3.31 for more information.
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ occ ---
+[INFO] Deleting C:\Users\kacang\IdeaProjects\occ\target
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ occ ---
+[INFO] Copying 7 resources from src\main\resources to target\classes
+[INFO] 
+[INFO] --- quarkus:3.31.4:generate-code (default-generate-code) @ occ ---
+[INFO] 
+[INFO] --- quarkus:3.31.4:generate-code (default) @ occ ---
+[INFO] 
+[INFO] --- compiler:3.14.1:compile (default-compile) @ occ ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 39 source files with javac [debug parameters release 21] to target\classes
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /C:/Users/kacang/IdeaProjects/occ/src/main/java/org/agora/occ/dto/common/ApiResponse.java:[20,25] type org.agora.occ.dto.common.StandardResponse does not take parameters
+[ERROR] /C:/Users/kacang/IdeaProjects/occ/src/main/java/org/agora/occ/dto/common/ApiResponse.java:[20,56] cannot find symbol
+  symbol:   method success(T,java.lang.String)
+  location: class org.agora.occ.dto.common.StandardResponse
+[ERROR] /C:/Users/kacang/IdeaProjects/occ/src/main/java/org/agora/occ/dto/common/ApiResponse.java:[28,25] type org.agora.occ.dto.common.StandardResponse does not take parameters
+[ERROR] /C:/Users/kacang/IdeaProjects/occ/src/main/java/org/agora/occ/dto/common/ApiResponse.java:[28,56] cannot find symbol
+  symbol:   method success(T,java.lang.String)
+  location: class org.agora.occ.dto.common.StandardResponse
+[ERROR] /C:/Users/kacang/IdeaProjects/occ/src/main/java/org/agora/occ/dto/common/ApiResponse.java:[36,25] type org.agora.occ.dto.common.StandardResponse does not take parameters
+[ERROR] /C:/Users/kacang/IdeaProjects/occ/src/main/java/org/agora/occ/dto/common/ApiResponse.java:[36,59] cannot find symbol
+  symbol:   method error(java.lang.String,int)
+  location: class org.agora.occ.dto.common.StandardResponse
+[INFO] 6 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  8.408 s
+[INFO] Finished at: 2026-02-26T09:18:07+07:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.14.1:compile (default-compile) on project occ: Compilation failure: Compilation failure: 
+[ERROR] /C:/Users/kacang/IdeaProjects/occ/src/main/java/org/agora/occ/dto/common/ApiResponse.java:[20,25] type org.agora.occ.dto.common.StandardResponse does not take parameters
+[ERROR] /C:/Users/kacang/IdeaProjects/occ/src/main/java/org/agora/occ/dto/common/ApiResponse.java:[20,56] cannot find symbol
+[ERROR]   symbol:   method success(T,java.lang.String)
+[ERROR]   location: class org.agora.occ.dto.common.StandardResponse
+[ERROR] /C:/Users/kacang/IdeaProjects/occ/src/main/java/org/agora/occ/dto/common/ApiResponse.java:[28,25] type org.agora.occ.dto.common.StandardResponse does not take parameters
+[ERROR] /C:/Users/kacang/IdeaProjects/occ/src/main/java/org/agora/occ/dto/common/ApiResponse.java:[28,56] cannot find symbol
+[ERROR]   symbol:   method success(T,java.lang.String)
+[ERROR]   location: class org.agora.occ.dto.common.StandardResponse
+[ERROR] /C:/Users/kacang/IdeaProjects/occ/src/main/java/org/agora/occ/dto/common/ApiResponse.java:[36,25] type org.agora.occ.dto.common.StandardResponse does not take parameters
+[ERROR] /C:/Users/kacang/IdeaProjects/occ/src/main/java/org/agora/occ/dto/common/ApiResponse.java:[36,59] cannot find symbol
+[ERROR]   symbol:   method error(java.lang.String,int)
+[ERROR]   location: class org.agora.occ.dto.common.StandardResponse
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

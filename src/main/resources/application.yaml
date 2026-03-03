@@ -1,0 +1,45 @@
+quarkus:
+  datasource:
+    db-kind: postgresql
+    jdbc:
+      url: ${DB_URL:jdbc:postgresql://localhost:5432/db_occ}
+    username: ${DB_USER:admin}
+    password: ${DB_PASS:postgres}
+
+  hibernate-orm:
+    database:
+      generation: drop-and-create
+
+  flyway:
+    migrate-at-start: true
+    baseline-on-migrate: true
+    locations: db/migration
+
+  hibernate-validator:
+    fail-fast: true
+
+  minio:
+    url: ${MINIO_URL:https://storage-api.sni.democoncept.id}
+    access-key: ${MINIO_ACCESS_KEY:sni}
+    secret-key: ${MINIO_SECRET_KEY:AgoraTS1@#}
+    public:
+      secure: false
+
+  # JWT Configuration
+smallrye:
+  jwt:
+    sign:
+      key:
+        location: rsaPrivateKey.pem
+
+mp:
+  jwt:
+    verify:
+      publickey:
+        location: publicKey.pem
+      issuer: "https://occ.agora.org"
+
+app:
+  minio:
+    url: ${MINIO_URL:https://storage-api.sni.democoncept.id}
+    bucket: ${MINIO_BUCKET:kai-occ}
