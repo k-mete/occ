@@ -32,5 +32,6 @@ public class LoginResponse {
     public static class CheckinData {
         private boolean isCheckedIn;
         private Instant checkInTime;
+        private UUID attendanceId;
     }
 }

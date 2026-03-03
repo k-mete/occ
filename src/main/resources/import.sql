@@ -1,7 +1,7 @@
 -- =============================================================================
 -- OCC Dummy Data
 -- Password for all users: admin123
--- BCrypt hash: $2a$10$wT8m9o3/XvQzj5YvD5176ea3Zk.g9XN15TInwXG3HInR5DXYKOhH2
+-- BCrypt hash: $2a$10$MsX891JiMhVJ7aaGXA.o4OEoiY6Efciw9O7x.N1i4AcLubUjo/rDW
 -- TransportCategory valid values: INTERCITY, LOCAL, COMMUTER, LRT, WHOOSH
 -- Directions valid values: EAST, WEST
 -- ActiveStatus valid values: ACTIVE, INACTIVE
@@ -11,9 +11,9 @@
 -- USERS (column names are camelCase-quoted as per the entity definition)
 -- ---------------------------------------------------------------------------
 INSERT INTO "user" ("userId", "nrp", "fullName", "password", "role", "createdAt", "updatedAt", "createdBy", "updatedBy") VALUES
-('a3f1e2d4-bc56-4a78-9012-3c4d5e6f7a8b', 'OCC001', 'Budi OCC',     '$2a$10$wT8m9o3/XvQzj5YvD5176ea3Zk.g9XN15TInwXG3HInR5DXYKOhH2', 'PETUGAS_OCC', NOW(), NOW(), NULL, NULL),
-('b4e2f3c5-cd67-4b89-a123-4d5e6f7a8b9c', 'JPL001', 'Joko JPL',     '$2a$10$wT8m9o3/XvQzj5YvD5176ea3Zk.g9XN15TInwXG3HInR5DXYKOhH2', 'PETUGAS_JPL', NOW(), NOW(), NULL, NULL),
-('c5f3a4d6-de78-4c9a-b234-5e6f7a8b9c0d', 'MAS001', 'Andi Masinis', '$2a$10$wT8m9o3/XvQzj5YvD5176ea3Zk.g9XN15TInwXG3HInR5DXYKOhH2', 'MASINIS',     NOW(), NOW(), NULL, NULL)
+('a3f1e2d4-bc56-4a78-9012-3c4d5e6f7a8b', 'OCC001', 'Budi OCC',     '$2a$10$MsX891JiMhVJ7aaGXA.o4OEoiY6Efciw9O7x.N1i4AcLubUjo/rDW', 'PETUGAS_OCC', NOW(), NOW(), NULL, NULL),
+('b4e2f3c5-cd67-4b89-a123-4d5e6f7a8b9c', 'JPL001', 'Joko JPL',     '$2a$10$MsX891JiMhVJ7aaGXA.o4OEoiY6Efciw9O7x.N1i4AcLubUjo/rDW', 'PETUGAS_JPL', NOW(), NOW(), NULL, NULL),
+('c5f3a4d6-de78-4c9a-b234-5e6f7a8b9c0d', 'MAS001', 'Andi Masinis', '$2a$10$MsX891JiMhVJ7aaGXA.o4OEoiY6Efciw9O7x.N1i4AcLubUjo/rDW', 'MASINIS',     NOW(), NOW(), NULL, NULL)
 ON CONFLICT ("nrp") DO NOTHING;
 
 -- ---------------------------------------------------------------------------

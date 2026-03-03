@@ -1,1 +1,19 @@
-# Development Profile Config
+# Development Profile — local defaults only, never commit real credentials
+# Activate with: mvn quarkus:dev (Quarkus auto-selects 'dev' profile in dev mode)
+
+quarkus:
+  datasource:
+    jdbc:
+      url: jdbc:postgresql://localhost:5432/db_occ
+    username: admin
+    password: postgres
+
+  minio:
+    url: http://localhost:9000
+    access-key: minioadmin
+    secret-key: minioadmin
+
+app:
+  minio:
+    url: http://localhost:9000
+    bucket: occ-dev

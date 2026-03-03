@@ -11,6 +11,7 @@ import org.agora.occ.dto.auth.response.ProfileResponse;
 import org.agora.occ.dto.auth.response.TokenRefreshResponse;
 import org.agora.occ.dto.auth.response.TokenResponse;
 import org.agora.occ.entity.RefreshTokenEntity;
+import org.agora.occ.entity.UserAttendanceEntity;
 import org.agora.occ.entity.UserEntity;
 import org.agora.occ.exception.ApplicationException;
 import org.agora.occ.exception.BadCredentialsException;
@@ -41,14 +42,17 @@ public class AuthService {
         private final UserRepository userRepository;
         private final RefreshTokenRepository refreshTokenRepository;
         private final JsonWebToken jwt;
+        private final UserAttendanceService userAttendanceService;
 
         @Inject
         public AuthService(UserRepository userRepository,
                         RefreshTokenRepository refreshTokenRepository,
-                        JsonWebToken jwt) {
+                        JsonWebToken jwt,
+                        UserAttendanceService userAttendanceService) {
                 this.userRepository = userRepository;
                 this.refreshTokenRepository = refreshTokenRepository;
                 this.jwt = jwt;
+                this.userAttendanceService = userAttendanceService;
         }
 
         /**
@@ -81,6 +85,9 @@ public class AuthService {
                 String accessToken = generateAccessToken(user, now, accessTokenExpiration);
                 RefreshTokenEntity refreshTokenEntity = createAndSaveRefreshToken(user, now);
 
+                // Check in the user for attendance tracking
+                UserAttendanceEntity attendance = userAttendanceService.checkIn(user);
+
                 LOG.infov("Successful login for NRP: {0}", request.getNrp());
 
                 return LoginResponse.builder()
@@ -97,9 +104,9 @@ public class AuthService {
                                                 .role(user.getRole())
                                                 .build())
                                 .checkin(LoginResponse.CheckinData.builder()
-                                                .isCheckedIn(true) // Placeholder logic, could fetch from another
-                                                                   // service
-                                                .checkInTime(now)
+                                                .isCheckedIn(true)
+                                                .checkInTime(attendance.getCheckIn())
+                                                .attendanceId(attendance.getId())
                                                 .build())
                                 .build();
         }
@@ -147,6 +154,9 @@ public class AuthService {
                         token.setRevoked(true);
                         refreshTokenRepository.persist(token);
                         LOG.infov("Revoked refresh token for User ID: {0}", token.getUser().getUserId());
+
+                        // Check out the user
+                        userAttendanceService.checkOut(token.getUser().getUserId());
                 });
         }
 
